@@ -1,8 +1,8 @@
-FROM node:16
+FROM node:16-buster
 
-RUN curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
-    curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list && \
-    sed -i /etc/apt/sources.list.d/dart_stable.list -e 's/https:/http:/g'
+# RUN curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+#     curl https://storage.googleapis.com/download.dartlang.org/linux/debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list && \
+#     sed -i /etc/apt/sources.list.d/dart_stable.list -e 's/https:/http:/g'
     
 RUN apt update && apt install -y wget libvips-dev libglib2.0-dev
 RUN apt -y install glib2.0-dev expat gobject-introspection libgtk2.0-doc 
